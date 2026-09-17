@@ -96,21 +96,24 @@ export default function Screen() {
       className="min-h-full"
       style={{ backgroundColor: brand.backgroundColor, color: TEXT, fontFamily: brand.fontBody }}
     >
-      <div className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
+      <div className="mx-auto w-full max-w-5xl px-4 py-4 sm:px-6 sm:py-8">
         <header>
           <h1
-            className="text-2xl font-semibold tracking-tight sm:text-3xl"
+            className="text-xl font-semibold tracking-tight sm:text-3xl"
             style={{ fontFamily: brand.fontHeading }}
           >
             Unit converter
           </h1>
-          <p className="mt-1.5 text-sm leading-relaxed" style={{ color: MUTED }}>
+          <p
+            className="mt-1.5 hidden text-sm leading-relaxed sm:block"
+            style={{ color: MUTED }}
+          >
             Pick a category and the two units, type a number — the result updates as you type. There
             is nothing to submit.
           </p>
         </header>
 
-        <div className="mt-6 flex flex-col gap-5 md:flex-row md:gap-6">
+        <div className="mt-4 flex flex-col gap-5 sm:mt-6 md:flex-row md:gap-6">
           {/* Category rail — desktop */}
           <aside className="hidden md:block md:w-44 md:shrink-0">
             <h2
@@ -180,7 +183,7 @@ export default function Screen() {
                 id="category-select"
                 value={category.id}
                 onChange={(e) => pickCategory(e.target.value)}
-                className={"mt-1.5 h-11 w-full border px-3 text-sm " + FOCUS}
+                className={"mt-1 h-10 w-full border px-3 text-sm sm:mt-1.5 sm:h-11 " + FOCUS}
                 style={selectStyle}
               >
                 {CATEGORIES.map((c) => (
@@ -193,7 +196,7 @@ export default function Screen() {
 
             <section
               aria-labelledby="converter-heading"
-              className="mt-4 border p-4 sm:p-5 md:mt-0"
+              className="mt-3 border p-3 sm:mt-4 sm:p-5 md:mt-0"
               style={{ backgroundColor: SURFACE, borderColor: LINE, borderRadius: brand.radius }}
             >
               <h2
@@ -205,8 +208,8 @@ export default function Screen() {
               </h2>
 
               {/* Value entry */}
-              <div className="mt-3">
-                <label htmlFor="value-input" className="block text-sm font-medium">
+              <div className="mt-2 sm:mt-3">
+                <label htmlFor="value-input" className="block text-xs font-medium sm:text-sm">
                   Value to convert
                 </label>
                 <input
@@ -219,7 +222,7 @@ export default function Screen() {
                   onChange={(e) => setRaw(e.target.value)}
                   aria-describedby="value-hint"
                   className={
-                    "mt-1.5 w-full border px-3 py-3 text-2xl font-semibold tabular-nums sm:text-3xl " +
+                    "mt-1 w-full border px-3 py-2 text-xl font-semibold tabular-nums sm:mt-1.5 sm:py-3 sm:text-3xl " +
                     FOCUS
                   }
                   style={{
@@ -229,22 +232,28 @@ export default function Screen() {
                     borderRadius: brand.radius,
                   }}
                 />
-                <p id="value-hint" className="mt-1.5 text-xs" style={{ color: MUTED }}>
+                <p
+                  id="value-hint"
+                  className="mt-1.5 hidden text-xs sm:block"
+                  style={{ color: MUTED }}
+                >
                   Decimals and negative numbers are fine. Use a point, e.g. 1.75
                 </p>
               </div>
 
               {/* Unit pair */}
-              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
+              <div className="mt-3 flex flex-col gap-2 sm:mt-4 sm:flex-row sm:items-end sm:gap-3">
                 <div className="min-w-0 flex-1">
-                  <label htmlFor="from-unit" className="block text-sm font-medium">
+                  <label htmlFor="from-unit" className="block text-xs font-medium sm:text-sm">
                     Convert from
                   </label>
                   <select
                     id="from-unit"
                     value={from.id}
                     onChange={(e) => setFromId(e.target.value)}
-                    className={"mt-1.5 h-11 w-full border px-3 text-sm " + FOCUS}
+                    className={
+                      "mt-1 h-10 w-full border px-3 text-sm sm:mt-1.5 sm:h-11 " + FOCUS
+                    }
                     style={selectStyle}
                   >
                     {category.units.map((u) => (
@@ -261,7 +270,7 @@ export default function Screen() {
                     onClick={swapUnits}
                     aria-label={"Swap units — currently " + from.name + " to " + to.name}
                     className={
-                      "inline-flex h-11 w-11 items-center justify-center border transition-colors " +
+                      "inline-flex h-10 w-10 items-center justify-center border transition-colors sm:h-11 sm:w-11 " +
                       FOCUS
                     }
                     style={{
@@ -279,14 +288,16 @@ export default function Screen() {
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <label htmlFor="to-unit" className="block text-sm font-medium">
+                  <label htmlFor="to-unit" className="block text-xs font-medium sm:text-sm">
                     Convert to
                   </label>
                   <select
                     id="to-unit"
                     value={to.id}
                     onChange={(e) => setToId(e.target.value)}
-                    className={"mt-1.5 h-11 w-full border px-3 text-sm " + FOCUS}
+                    className={
+                      "mt-1 h-10 w-full border px-3 text-sm sm:mt-1.5 sm:h-11 " + FOCUS
+                    }
                     style={selectStyle}
                   >
                     {category.units.map((u) => (
