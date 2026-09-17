@@ -8,8 +8,7 @@
  */
 
 export type Unit = { id: string; name: string; symbol: string } & (
-  | { factor: number }
-  | { toBase: (v: number) => number; fromBase: (v: number) => number }
+  { factor: number } | { toBase: (v: number) => number; fromBase: (v: number) => number }
 );
 
 export type CategoryId = "length" | "weight" | "temperature" | "volume" | "area";
