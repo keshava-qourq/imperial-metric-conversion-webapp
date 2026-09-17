@@ -104,10 +104,7 @@ export default function Screen() {
           >
             Unit converter
           </h1>
-          <p
-            className="mt-1.5 hidden text-sm leading-relaxed sm:block"
-            style={{ color: MUTED }}
-          >
+          <p className="mt-1.5 hidden text-sm leading-relaxed sm:block" style={{ color: MUTED }}>
             Pick a category and the two units, type a number — the result updates as you type. There
             is nothing to submit.
           </p>
@@ -251,9 +248,7 @@ export default function Screen() {
                     id="from-unit"
                     value={from.id}
                     onChange={(e) => setFromId(e.target.value)}
-                    className={
-                      "mt-1 h-10 w-full border px-3 text-sm sm:mt-1.5 sm:h-11 " + FOCUS
-                    }
+                    className={"mt-1 h-10 w-full border px-3 text-sm sm:mt-1.5 sm:h-11 " + FOCUS}
                     style={selectStyle}
                   >
                     {category.units.map((u) => (
@@ -295,9 +290,7 @@ export default function Screen() {
                     id="to-unit"
                     value={to.id}
                     onChange={(e) => setToId(e.target.value)}
-                    className={
-                      "mt-1 h-10 w-full border px-3 text-sm sm:mt-1.5 sm:h-11 " + FOCUS
-                    }
+                    className={"mt-1 h-10 w-full border px-3 text-sm sm:mt-1.5 sm:h-11 " + FOCUS}
                     style={selectStyle}
                   >
                     {category.units.map((u) => (
