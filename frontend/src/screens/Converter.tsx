@@ -1,11 +1,7 @@
 import React from "react";
 
-import * as UI from "@/lib/ui";
 import { Icons } from "@/lib/icons";
 import { brand } from "@/lib/brand";
-
-const { Select } = UI;
-const { Check, ArrowLeft, ArrowRight } = Icons;
 
 const SURFACE = "#11263A";
 const WELL = "#0A1725";
@@ -32,8 +28,8 @@ const CATEGORIES = [
       { id: "mm", name: "millimetre", symbol: "mm", factor: 0.001 },
       { id: "cm", name: "centimetre", symbol: "cm", factor: 0.01 },
       { id: "m", name: "metre", symbol: "m", factor: 1 },
-      { id: "km", name: "kilometre", symbol: "km", factor: 1000 }
-    ]
+      { id: "km", name: "kilometre", symbol: "km", factor: 1000 },
+    ],
   },
   {
     id: "weight",
@@ -46,8 +42,8 @@ const CATEGORIES = [
       { id: "lb", name: "pound", symbol: "lb", factor: 0.45359237 },
       { id: "st", name: "stone", symbol: "st", factor: 6.35029318 },
       { id: "g", name: "gram", symbol: "g", factor: 0.001 },
-      { id: "kg", name: "kilogram", symbol: "kg", factor: 1 }
-    ]
+      { id: "kg", name: "kilogram", symbol: "kg", factor: 1 },
+    ],
   },
   {
     id: "temperature",
@@ -61,16 +57,16 @@ const CATEGORIES = [
         name: "degrees Fahrenheit",
         symbol: "°F",
         toBase: (v) => ((v - 32) * 5) / 9,
-        fromBase: (v) => (v * 9) / 5 + 32
+        fromBase: (v) => (v * 9) / 5 + 32,
       },
       {
         id: "c",
         name: "degrees Celsius",
         symbol: "°C",
         toBase: (v) => v,
-        fromBase: (v) => v
-      }
-    ]
+        fromBase: (v) => v,
+      },
+    ],
   },
   {
     id: "volume",
@@ -84,8 +80,8 @@ const CATEGORIES = [
       { id: "pt", name: "pint (US)", symbol: "pt", factor: 0.473176473 },
       { id: "gal", name: "gallon (US)", symbol: "gal", factor: 3.785411784 },
       { id: "ml", name: "millilitre", symbol: "ml", factor: 0.001 },
-      { id: "l", name: "litre", symbol: "L", factor: 1 }
-    ]
+      { id: "l", name: "litre", symbol: "L", factor: 1 },
+    ],
   },
   {
     id: "area",
@@ -98,9 +94,9 @@ const CATEGORIES = [
       { id: "sqyd", name: "square yard", symbol: "sq yd", factor: 0.83612736 },
       { id: "ac", name: "acre", symbol: "ac", factor: 4046.8564224 },
       { id: "sqm", name: "square metre", symbol: "m²", factor: 1 },
-      { id: "ha", name: "hectare", symbol: "ha", factor: 10000 }
-    ]
-  }
+      { id: "ha", name: "hectare", symbol: "ha", factor: 10000 },
+    ],
+  },
 ];
 
 const SUPERSCRIPTS = {
@@ -114,7 +110,7 @@ const SUPERSCRIPTS = {
   "6": "⁶",
   "7": "⁷",
   "8": "⁸",
-  "9": "⁹"
+  "9": "⁹",
 };
 
 function toSuperscript(n) {
@@ -186,7 +182,7 @@ export default function Screen() {
     backgroundColor: WELL,
     borderColor: LINE_STRONG,
     color: TEXT,
-    borderRadius: brand.radius
+    borderRadius: brand.radius,
   };
 
   return (
@@ -235,7 +231,7 @@ export default function Screen() {
                         borderColor: active ? "rgba(197,98,27,0.55)" : LINE,
                         backgroundColor: active ? "rgba(197,98,27,0.14)" : "transparent",
                         color: active ? TEXT : MUTED,
-                        fontWeight: active ? 600 : 400
+                        fontWeight: active ? 600 : 400,
                       }}
                     >
                       <span
@@ -244,21 +240,22 @@ export default function Screen() {
                         style={{
                           borderRadius: "0.35rem",
                           backgroundColor: active ? brand.accentColor : "rgba(161,186,211,0.10)",
-                          color: active ? "#12100D" : MUTED
+                          color: active ? "#12100D" : MUTED,
                         }}
                       >
                         {c.glyph}
                       </span>
                       <span className="flex-1">{c.label}</span>
-                      {active ? (
-                        <Icons.Check className="h-4 w-4" aria-hidden="true" />
-                      ) : null}
+                      {active ? <Icons.Check className="h-4 w-4" aria-hidden="true" /> : null}
                     </button>
                   </li>
                 );
               })}
             </ul>
-            <p className="mt-4 px-1 text-[11px] leading-relaxed" style={{ color: "rgba(161,186,211,0.75)" }}>
+            <p
+              className="mt-4 px-1 text-[11px] leading-relaxed"
+              style={{ color: "rgba(161,186,211,0.75)" }}
+            >
               Free, anonymous, and runs entirely in your browser. Nothing is saved.
             </p>
           </aside>
@@ -323,7 +320,7 @@ export default function Screen() {
                     backgroundColor: WELL,
                     borderColor: LINE_STRONG,
                     color: TEXT,
-                    borderRadius: brand.radius
+                    borderRadius: brand.radius,
                   }}
                 />
                 <p id="value-hint" className="mt-1.5 text-xs" style={{ color: MUTED }}>
@@ -365,7 +362,7 @@ export default function Screen() {
                       borderRadius: brand.radius,
                       borderColor: LINE_STRONG,
                       backgroundColor: "rgba(58,109,131,0.28)",
-                      color: TEXT
+                      color: TEXT,
                     }}
                   >
                     <span aria-hidden="true" className="flex flex-col gap-0.5 sm:flex-row sm:gap-1">
@@ -402,7 +399,7 @@ export default function Screen() {
                   backgroundColor: WELL,
                   borderColor: LINE,
                   borderRadius: brand.radius,
-                  borderLeft: "3px solid " + brand.accentColor
+                  borderLeft: "3px solid " + brand.accentColor,
                 }}
               >
                 <h3
@@ -432,7 +429,10 @@ export default function Screen() {
                     </React.Fragment>
                   ) : (
                     <React.Fragment>
-                      <p className="text-3xl font-semibold tabular-nums sm:text-4xl" style={{ color: LINE_STRONG }}>
+                      <p
+                        className="text-3xl font-semibold tabular-nums sm:text-4xl"
+                        style={{ color: LINE_STRONG }}
+                      >
                         &mdash;
                       </p>
                       <p className="mt-1.5 text-sm" style={{ color: MUTED }}>
@@ -481,7 +481,7 @@ export default function Screen() {
                           style={{
                             borderRadius: brand.radius,
                             borderColor: LINE,
-                            backgroundColor: "rgba(10,23,37,0.6)"
+                            backgroundColor: "rgba(10,23,37,0.6)",
                           }}
                         >
                           <span className="min-w-0 truncate text-sm" style={{ color: MUTED }}>
@@ -533,7 +533,10 @@ export default function Screen() {
                   pickers.
                 </li>
               </ol>
-              <p className="mt-3 text-xs leading-relaxed" style={{ color: "rgba(161,186,211,0.75)" }}>
+              <p
+                className="mt-3 text-xs leading-relaxed"
+                style={{ color: "rgba(161,186,211,0.75)" }}
+              >
                 {category.basis} Volume uses US customary measures, which differ from UK imperial.
               </p>
             </section>
